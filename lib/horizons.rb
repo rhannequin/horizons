@@ -1,4 +1,6 @@
-module Horizon
+require "horizons/version"
+
+module Horizons
   class ObjectDataPageParser
     def self.parse(object_data_page)
       data_lines = DataLines.new
@@ -68,9 +70,4 @@ module Horizon
       line.to_enum(:scan, REG).map { |m,| $`.size }.first
     end
   end
-end
-
-
-File.open('mars.txt', 'r') do |f|
-  Horizon::ObjectDataPageParser.parse(f)
 end
