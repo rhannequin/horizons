@@ -2,8 +2,10 @@ require 'horizons/parsers/object_data_page_parser/data_lines'
 require 'horizons/parsers/object_data_page_parser/object_data_page_line'
 
 module Horizons
-  class ObjectDataPageParser
-    def self.parse(object_data_page)
+  module ObjectDataPageParser
+    module_function
+
+    def parse(object_data_page)
       data_lines = DataLines.new
 
       object_data_page.each_line do |line|
