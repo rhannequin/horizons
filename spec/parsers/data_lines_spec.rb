@@ -10,7 +10,7 @@ describe Horizons::DataLines do
     end
 
     it 'returns a hash' do
-      expect(data_lines.export_values).to eq({ mean_radius: '3389.9(2+-4)', density: '3.933(5+-4)' })
+      expect(data_lines.export_values).to eq({ mean_radius: 3389.9, density: 3.933 })
     end
   end
 

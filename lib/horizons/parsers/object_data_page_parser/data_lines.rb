@@ -19,7 +19,10 @@ module Horizons
       lines.each do |line|
         splitted_line(line).each do |v|
           splitted = v.split(SEPARATOR).map(&:strip)
-          values[change_name(splitted.first)] = splitted.last
+          old_name = splitted.first
+          new_name = change_name old_name
+          new_value = change_figure new_name, old_name, splitted.last
+          values[new_name] = new_value
         end
       end
       values
@@ -99,7 +102,87 @@ module Horizons
         :hills_sphere_radius
       when 'Mag. mom (gauss Rp^3)'
         :magnitude_moment
+      else
+        old_name.to_sym
       end
+    end
+
+    def change_figure(name, old_name, old_figure)
+      case name
+      when :mean_radius
+        to_numeric old_figure
+      when :density
+        to_numeric old_figure
+      when :mass
+        to_numeric old_figure
+      when :flattening
+        old_figure
+      when :volume
+        to_numeric old_figure
+      when :semi_major_axis
+        to_numeric old_figure
+      when :sideral_rotation_period
+        to_numeric old_figure
+      when :rotation_rate
+        to_numeric old_figure
+      when :mean_solar_day
+        to_numeric old_figure
+      when :polar_gravity
+        to_numeric old_figure
+      when :moment_of_inertia
+        to_numeric old_figure
+      when :equator_gravity
+        to_numeric old_figure
+      when :core_radius
+        old_figure
+      when :potential_love
+        to_numeric old_figure
+      when :grav_spectral_fact_u
+        old_figure
+      when :topo_spectral_fact_t
+        old_figure
+      when :figure_offset
+        old_figure
+      when :offset
+        old_figure
+      when :standard_gravitational_parameter
+        old_figure.to_f
+      when :equatorial_radius
+        to_numeric old_figure
+      when :gm_1_sigma
+        old_figure
+      when :mass_ratio
+        old_figure
+      when :atmosphere_pressure
+        old_figure.to_f
+      when :maximum_agular_diameter
+        to_numeric old_figure
+      when :mean_temperature
+        old_figure.to_i
+      when :visual_magnitude
+        old_figure.to_f
+      when :geometric_albedo
+        old_figure.to_f
+      when :obliquity_to_orbit
+        to_numeric old_figure
+      when :mean_sidereal_orbit_period
+        to_numeric old_figure
+      when :orbit_velocity
+        old_figure.to_f
+      when :escape_velocity
+        old_figure.to_f
+      when :hills_sphere_radius
+        old_figure.to_f
+      when :magnitude_moment
+        old_figure
+      else
+        old_figure
+      end
+    end
+
+    def to_numeric(str)
+      num = str.match(/\d*\.?\d*/).to_s.to_f
+      num % 1 != 0 ? num.to_f : num.to_i
     end
   end
 end
