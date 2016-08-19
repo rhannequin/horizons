@@ -15,11 +15,14 @@ module Horizons
     end
 
     def export_values
-      values = []
+      values = {}
       lines.each do |line|
         v1 = line.slice(0..middle - 1).strip
         v2 = line.slice(middle..-1).strip
-        values.concat [v1, v2].map { |v| v.split(SEPARATOR).map(&:strip) }
+        [v1, v2].each do |v|
+          splitted = v.split(SEPARATOR).map(&:strip)
+          values[splitted.first.to_sym] = splitted.last
+        end
       end
       values
     end
