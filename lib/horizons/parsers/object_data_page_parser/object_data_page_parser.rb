@@ -1,11 +1,13 @@
 require 'horizons/parsers/object_data_page_parser/data_lines'
 require 'horizons/parsers/object_data_page_parser/object_data_page_line'
+require 'horizons/parsers/object_data_page_parser/object_data_page_meta'
 
 module Horizons
   module ObjectDataPageParser
     module_function
 
     def parse(object_data_page)
+      meta = ObjectDataPageMeta.new(object_data_page).export
       data_lines = DataLines.new
 
       object_data_page.each_line do |line|
@@ -21,7 +23,7 @@ module Horizons
       end
 
       data_lines.calculate_middle!
-      data_lines.export_values
+      meta.merge({ data: data_lines.export_values })
     end
   end
 end

@@ -1,4 +1,3 @@
-*******************************************************************************
  Revised: Sep 13, 2016              Jupiter                                 599
 
  PHYSICAL DATA (updated 2009-Jan-28):
@@ -24,4 +23,3 @@
   Planetary Solar Const =  50.5 W/m^2     Dipole tilt/offset     = 9.6deg/0.1Rp
   Escape velocity (km/s)=  59.5           Mag.dip.mom(gauss-Rp^3)= 4.2
   A_roche(ice)/Rp       =  2.76           Hill's sphere rad. Rp  = 740
-*******************************************************************************

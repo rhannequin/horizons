@@ -1,8 +1,8 @@
 # Horizons
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/horizons`. To experiment with that code, run `bin/console` for an interactive prompt.
+Horizons is a gem to get information from [NASA JPL SSD Horizons Telnet interface](http://ssd.jpl.nasa.gov/?horizons#telnet).
 
-TODO: Delete this and the text above, and describe your gem
+**Be careful**, this gem is still under development and major changes may occur.
 
 ## Installation
 
@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+Horizons::Body.find(Horizons::Client.new, 499)
+```
 
 ## Development
 
@@ -32,7 +34,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/horizons.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/rhannequin/horizons](https://github.com/rhannequin/horizons).
 
 
 ## License
