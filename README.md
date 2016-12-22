@@ -23,7 +23,9 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-Horizons::Body.find(Horizons::Client.new, 499)
+mars = 499
+client = Horizons::Client.new
+body = Horizons::Body.find(client, mars)
 ```
 
 ## Development
