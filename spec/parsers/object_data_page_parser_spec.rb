@@ -3,19 +3,13 @@ require 'fixtures/fixtures'
 
 describe Horizons::ObjectDataPageParser do
   context '::parse' do
-    context 'Mars' do
-      subject { described_class.parse(Fixtures.without_layout Fixtures.mars) }
+    Fixtures.planets.each do |body|
+      context body.to_s.capitalize do
+        subject { described_class.parse(Fixtures.without_layout Fixtures.send(body)) }
 
-      it 'returns a hash' do
-        expect(subject).to be_kind_of(Hash)
-      end
-    end
-
-    context 'Jupiter' do
-      subject { described_class.parse(Fixtures.without_layout Fixtures.jupiter) }
-
-      it 'returns a hash' do
-        expect(subject).to be_kind_of(Hash)
+        it 'returns a hash' do
+          expect(subject).to be_kind_of(Hash)
+        end
       end
     end
   end
