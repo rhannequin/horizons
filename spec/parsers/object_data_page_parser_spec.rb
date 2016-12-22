@@ -4,7 +4,7 @@ require 'fixtures/fixtures'
 describe Horizons::ObjectDataPageParser do
   context '::parse' do
     context 'Mars' do
-      subject { described_class.parse Fixtures.mars }
+      subject { described_class.parse(Fixtures.without_layout Fixtures.mars) }
 
       it 'returns a hash' do
         expect(subject).to be_kind_of(Hash)
@@ -12,7 +12,7 @@ describe Horizons::ObjectDataPageParser do
     end
 
     context 'Jupiter' do
-      subject { described_class.parse Fixtures.jupiter }
+      subject { described_class.parse(Fixtures.without_layout Fixtures.jupiter) }
 
       it 'returns a hash' do
         expect(subject).to be_kind_of(Hash)

@@ -30,7 +30,7 @@ describe Horizons::Body do
   end
 
   context '::find' do
-    let(:client) { double('Client', cmd: Fixtures.layout_mars) }
+    let(:client) { double('Client', cmd: Fixtures.mars) }
     let(:body) { 499 }
     let(:parser) { double('Parser', parse: parsed_data) }
 
@@ -42,7 +42,7 @@ describe Horizons::Body do
   end
 
   context '::remove_layout' do
-    let(:page) { Fixtures.layout_mars }
+    let(:page) { Fixtures.mars }
 
     subject { described_class.remove_layout(page) }
 

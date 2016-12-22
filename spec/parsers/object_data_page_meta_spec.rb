@@ -4,7 +4,7 @@ require 'fixtures/fixtures'
 describe Horizons::ObjectDataPageMeta do
   context '#export' do
     context 'Mars' do
-      subject { described_class.new(Fixtures.mars).export }
+      subject { described_class.new(Fixtures.without_layout Fixtures.mars).export }
 
       it 'returns a hash' do
         expect(subject).to be_kind_of(Hash)
@@ -20,7 +20,7 @@ describe Horizons::ObjectDataPageMeta do
     end
 
     context 'Jupiter' do
-      subject { described_class.new(Fixtures.jupiter).export }
+      subject { described_class.new(Fixtures.without_layout Fixtures.jupiter).export }
 
       it 'returns a hash' do
         expect(subject).to be_kind_of(Hash)
